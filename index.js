@@ -16,7 +16,7 @@ const {
 } = require("systeminformation");
 const utils = require("./utils");
 
-const port = process.env.PORT || 4800;
+const port = process.env.PORT || 80;
 
 app.use(
   history({
