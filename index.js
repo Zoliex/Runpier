@@ -14,7 +14,9 @@ const {
   mem,
   cpuTemperature,
 } = require("systeminformation");
-//const fan = require("./fan");
+const fan = require("./fan");
+fan.controlFan();
+const utils = require("./utils");
 
 const port = process.env.PORT || 4800;
 
@@ -64,8 +66,8 @@ app.get("/api/system", async (req, res) => {
 
   res.send({
     fan: {
-      value: 0, //fan.getRPM(),
-      valuePrct: 0, //fan.getFanSpeed(),
+      value: fan.getRPM(),
+      valuePrct: fan.getFanSpeed(),
       unit: "rpm",
     },
     cpu: {
@@ -93,10 +95,12 @@ app.get("/api/system", async (req, res) => {
 
 app.get("/api/reboot", async (req, res) => {
   console.log("reboot");
+  utils.reboot();
 });
 
 app.get("/api/shutdown", async (req, res) => {
   console.log("shutdown");
+  utils.shutdown();
 });
 
 http.listen(port, () => {
