@@ -2,8 +2,8 @@ const Gpio = require("pigpio").Gpio;
 const fs = require("fs");
 const sleep = require("util").promisify(setTimeout);
 
-const FAN_PIN = 21; // GPIO pin connected to the fan
-const TACHO_PIN = 18; // GPIO pin connected to the fan's tachometer output
+const FAN_PIN = 17; // GPIO pin connected to the fan
+const TACHO_PIN = 27; // GPIO pin connected to the fan's tachometer output
 const WAIT_TIME = 1000; // 1 second
 const FAN_MIN = 20; // 20%
 const PWM_FREQ = 25; // 25 Hz
